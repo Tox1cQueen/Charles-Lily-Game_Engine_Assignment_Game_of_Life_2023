@@ -10,6 +10,7 @@ public class DrilburStateManager : MonoBehaviour
     public float speed;
     public Vector3 wanderTarget;
     public bool isWandering;
+    public bool isFleeing;
     
     private DrilburBaseState _currentState;
     public DrilburFollowState _drilburFollowState = new DrilburFollowState();
@@ -28,6 +29,12 @@ public class DrilburStateManager : MonoBehaviour
     void Update()
     {
         _currentState.UpdateState(this);
+    }
+    
+    public void SwitchState(DrilburBaseState state)
+    {
+        _currentState = state;
+        state.EnterState(this);
     }
     
     public void OnTriggerEnter(Collider other)

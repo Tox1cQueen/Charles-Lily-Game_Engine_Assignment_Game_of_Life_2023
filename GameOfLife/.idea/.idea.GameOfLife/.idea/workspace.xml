@@ -11,6 +11,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrilburAIScripts/DrilburStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrilburAIScripts/Wander.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoBaseState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoPauseState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoStateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoTrackingState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -73,6 +74,7 @@
       <workItem from="1682538802193" duration="594000" />
       <workItem from="1682783398094" duration="5252000" />
       <workItem from="1682790140111" duration="2791000" />
+      <workItem from="1682883425036" duration="5117000" />
     </task>
     <servers />
   </component>

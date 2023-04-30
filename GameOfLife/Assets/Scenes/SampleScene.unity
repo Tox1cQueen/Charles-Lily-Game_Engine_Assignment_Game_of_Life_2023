@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 478339501}
   - component: {fileID: 478339505}
   - component: {fileID: 478339507}
+  - component: {fileID: 478339508}
   m_Layer: 0
   m_Name: Drilbur
   m_TagString: Untagged
@@ -269,8 +270,8 @@ MonoBehaviour:
   speed: 1
   wanderTarget: {x: 0, y: 0, z: 0}
   isWandering: 0
+  isFleeing: 0
   _drilburFollowState: {fileID: 0}
-  _drilburRunState: {fileID: 0}
 --- !u!143 &478339507
 CharacterController:
   m_ObjectHideFlags: 0
@@ -288,6 +289,19 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &478339508
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478339500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.94
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -395,6 +409,7 @@ GameObject:
   - component: {fileID: 906825342}
   - component: {fileID: 906825341}
   - component: {fileID: 906825340}
+  - component: {fileID: 906825344}
   m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
@@ -480,6 +495,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &906825344
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906825339}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,9 +624,10 @@ GameObject:
   - component: {fileID: 976959099}
   - component: {fileID: 976959098}
   - component: {fileID: 976959097}
+  - component: {fileID: 976959103}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,3 +756,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &976959103
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976959096}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
