@@ -17,7 +17,7 @@ public class DrilburRunState : DrilburBaseState
 
     public override void UpdateState(DrilburStateManager drilbur)
     {
-
+        drilbur.rb.velocity = new Vector3(0, drilbur.rb.velocity.y, 0);
     }
 
     public override void OnTrig(DrilburStateManager drilbur, Collider other)
@@ -29,6 +29,11 @@ public class DrilburRunState : DrilburBaseState
     {
         drilbur.StopCoroutine(Flee(drilbur));
         drilbur.SwitchState(drilbur._drilburWanderState);
+    }
+
+    public override void OnTrigStay(DrilburStateManager drilbur, Collider other)
+    {
+        
     }
 
     IEnumerator Flee(DrilburStateManager drilbur)

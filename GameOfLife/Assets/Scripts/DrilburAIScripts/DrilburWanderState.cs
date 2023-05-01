@@ -16,12 +16,19 @@ public class DrilburWanderState : DrilburBaseState
 
     public override void UpdateState(DrilburStateManager drilbur)
     {
+        drilbur.rb.velocity = new Vector3(0, drilbur.rb.velocity.y, 0);
         var step = drilbur.speed * Time.deltaTime;
         drilbur.transform.position = Vector3.MoveTowards(drilbur.transform.position, drilbur.wanderTarget, step);
         Debug.Log("In wander state rn");
     }
 
     public override void OnTrig(DrilburStateManager drilbur, Collider other)
+    {
+    }
+
+    public override void OnTrigExit(DrilburStateManager drilbur) {}
+
+    public override void OnTrigStay(DrilburStateManager drilbur, Collider other)
     {
         if (other.tag == "Player")
         {
@@ -30,8 +37,7 @@ public class DrilburWanderState : DrilburBaseState
             Debug.Log("Switching to Run state!");
         }
     }
-
-    public override void OnTrigExit(DrilburStateManager drilbur) {}
+    
 
     IEnumerator PickNewTarget(DrilburStateManager drilbur)
     {

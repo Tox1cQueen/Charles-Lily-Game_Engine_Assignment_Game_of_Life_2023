@@ -11,6 +11,7 @@ public class DrilburStateManager : MonoBehaviour
     public Vector3 wanderTarget;
     public bool isWandering;
     public bool isFleeing;
+    public Rigidbody rb;
     
     private DrilburBaseState _currentState;
     public DrilburFollowState _drilburFollowState = new DrilburFollowState();
@@ -28,6 +29,7 @@ public class DrilburStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
         _currentState.UpdateState(this);
     }
     
@@ -50,4 +52,8 @@ public class DrilburStateManager : MonoBehaviour
         _currentState.OnTrigExit(this);
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        _currentState.OnTrigStay(this, other);
+    }
 }
