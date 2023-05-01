@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrilburWanderState : DrilburBaseState
 {
     private DrilburStateManager _stateManager;
+    private DottlerStateManager _dottlerStateManager;
 
     public override void EnterState(DrilburStateManager drilbur)
     {
@@ -20,6 +21,12 @@ public class DrilburWanderState : DrilburBaseState
         var step = drilbur.speed * Time.deltaTime;
         drilbur.transform.position = Vector3.MoveTowards(drilbur.transform.position, drilbur.wanderTarget, step);
         Debug.Log("In wander state rn");
+        
+        if (_dottlerStateManager.followingDrilbur == true)
+        {
+            drilbur.speed = 0.5f;
+        }
+        
     }
 
     public override void OnTrig(DrilburStateManager drilbur, Collider other)
@@ -35,6 +42,19 @@ public class DrilburWanderState : DrilburBaseState
             drilbur.StopCoroutine(PickNewTarget(drilbur));
             drilbur.SwitchState(drilbur._drilburRunState);
             Debug.Log("Switching to Run state!");
+        }
+
+        if (other.tag == "Berry")
+        {
+            drilbur.StopCoroutine(PickNewTarget(drilbur));
+            drilbur.SwitchState(drilbur._drilburFollowState);
+            Debug.Log("Switching to Follow state!");
+        }
+        
+        if (other.tag == "Dottler")
+        {
+            Debug.Log("Dottler found");
+            drilbur.speed = 0.6f;
         }
     }
     

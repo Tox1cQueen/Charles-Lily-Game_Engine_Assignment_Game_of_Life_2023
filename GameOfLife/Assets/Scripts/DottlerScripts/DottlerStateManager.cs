@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrilburStateManager : MonoBehaviour
+public class DottlerStateManager : MonoBehaviour
 {
 
     public Transform player;
@@ -12,17 +12,19 @@ public class DrilburStateManager : MonoBehaviour
     public bool isWandering;
     public bool isFleeing;
     public Rigidbody rb;
+    public bool followingDrilbur = false;
+    public Transform drilbur;
     
-    private DrilburBaseState _currentState;
-    public DrilburFollowState _drilburFollowState = new DrilburFollowState();
-    public DrilburRunState _drilburRunState = new DrilburRunState();
-    public DrilburWanderState _drilburWanderState = new DrilburWanderState();
-    
+    public DottlerBaseState _currentState;
+    public DottlerFollowState _dottlerFollowState = new DottlerFollowState();
+    public DottlerRunState _dottlerRunState = new DottlerRunState();
+    public DottlerWanderState _dottlerWanderState = new DottlerWanderState();
+    public DottlerFollowDrilburState _dottlerFollowDrilburState = new DottlerFollowDrilburState();
 
     // Start is called before the first frame update
     void Start()
     {
-        _currentState = _drilburWanderState;
+        _currentState = _dottlerWanderState;
         _currentState.EnterState(this);
     }
 
@@ -33,7 +35,7 @@ public class DrilburStateManager : MonoBehaviour
         _currentState.UpdateState(this);
     }
     
-    public void SwitchState(DrilburBaseState state)
+    public void SwitchState(DottlerBaseState state)
     {
         _currentState = state;
         state.EnterState(this);

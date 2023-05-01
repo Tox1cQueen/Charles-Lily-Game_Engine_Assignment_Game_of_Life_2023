@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Berry : MonoBehaviour
 {
-    public GameObject self;
 
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Among Us");
         if (other.tag == "Player")
         {
-            other.gameObject.tag = "Berry";
+            other.tag = "Berry";
         }
+        
+        Destroy(this.gameObject);
     }
 
     void OnTriggerStay(Collider other)
     {
-        Destroy(self);
     }
 }

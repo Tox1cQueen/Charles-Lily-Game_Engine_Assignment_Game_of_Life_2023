@@ -8,8 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrilburAIScripts/DrilburStateManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrilburAIScripts/Wander.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Berry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoBaseState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoPauseState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Winter_Project/Winter_Project/Assets/Scripts/Lily Scripts/WendigoStateManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -74,7 +73,7 @@
       <workItem from="1682538802193" duration="594000" />
       <workItem from="1682783398094" duration="5252000" />
       <workItem from="1682790140111" duration="2791000" />
-      <workItem from="1682883425036" duration="7731000" />
+      <workItem from="1682883425036" duration="13183000" />
     </task>
     <servers />
   </component>
