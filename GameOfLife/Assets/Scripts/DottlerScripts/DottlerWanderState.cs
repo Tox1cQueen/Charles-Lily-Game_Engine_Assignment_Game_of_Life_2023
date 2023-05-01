@@ -52,7 +52,7 @@ public class DottlerWanderState : DottlerBaseState
     {
         while (dottler.isWandering = true)
         {
-            dottler.wanderTarget = new Vector3(Random.insideUnitSphere.x * 5, 1, Random.insideUnitSphere.z * 5);
+            dottler.wanderTarget = new Vector3(Random.insideUnitSphere.x * 5, 0, Random.insideUnitSphere.z * 5);
             Debug.Log("New target picked!");
             yield return new WaitForSeconds(3f);
         }

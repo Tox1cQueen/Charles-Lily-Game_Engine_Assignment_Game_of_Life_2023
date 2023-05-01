@@ -21,12 +21,12 @@ public class DrilburWanderState : DrilburBaseState
         var step = drilbur.speed * Time.deltaTime;
         drilbur.transform.position = Vector3.MoveTowards(drilbur.transform.position, drilbur.wanderTarget, step);
         Debug.Log("In wander state rn");
-        
+
         if (_dottlerStateManager.followingDrilbur == true)
         {
             drilbur.speed = 0.5f;
         }
-        
+
     }
 
     public override void OnTrig(DrilburStateManager drilbur, Collider other)
@@ -40,6 +40,8 @@ public class DrilburWanderState : DrilburBaseState
         if (other.tag == "Player")
         {
             drilbur.StopCoroutine(PickNewTarget(drilbur));
+            drilbur.largeSphereTrigger.enabled = true;
+            drilbur.smallSphereTrigger.enabled = false;
             drilbur.SwitchState(drilbur._drilburRunState);
             Debug.Log("Switching to Run state!");
         }
@@ -54,7 +56,7 @@ public class DrilburWanderState : DrilburBaseState
         if (other.tag == "Dottler")
         {
             Debug.Log("Dottler found");
-            drilbur.speed = 0.6f;
+            drilbur.speed = 1.4f;
         }
     }
     

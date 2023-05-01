@@ -15,7 +15,9 @@ public class DottlerFollowState : DottlerBaseState
     {
         dottler.rb.velocity = new Vector3(0, dottler.rb.velocity.y, 0);
         var step = dottler.speed * Time.deltaTime;
-        dottler.transform.position = Vector3.MoveTowards(dottler.transform.position, dottler.player.position, step);
+        Vector3 followPoint = new Vector3(dottler.player.position.x, 0,
+            dottler.player.position.z + 2); 
+        dottler.transform.position = Vector3.MoveTowards(dottler.transform.position, followPoint, step);
         Debug.Log("In following state rn");
     }
 

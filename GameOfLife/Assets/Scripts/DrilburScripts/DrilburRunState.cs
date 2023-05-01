@@ -28,6 +28,8 @@ public class DrilburRunState : DrilburBaseState
     public override void OnTrigExit(DrilburStateManager drilbur)
     {
         drilbur.StopCoroutine(Flee(drilbur));
+        drilbur.largeSphereTrigger.enabled = false;
+        drilbur.smallSphereTrigger.enabled = true;
         drilbur.SwitchState(drilbur._drilburWanderState);
     }
 
@@ -44,6 +46,7 @@ public class DrilburRunState : DrilburBaseState
             direction.y = 0;
             drilbur.transform.Translate(direction.normalized * drilbur.speed * Time.deltaTime);
             Debug.Log("Fleeing!");
+            drilbur.speed = 4f;
             yield return null;
         }
     }

@@ -14,6 +14,11 @@ public class DottlerStateManager : MonoBehaviour
     public Rigidbody rb;
     public bool followingDrilbur = false;
     public Transform drilbur;
+    public AudioSource source;
+    public float minWait = 5f;
+    public float maxWait = 10f;
+    public float waitTimer = -2f;
+
     
     public DottlerBaseState _currentState;
     public DottlerFollowState _dottlerFollowState = new DottlerFollowState();
@@ -24,6 +29,7 @@ public class DottlerStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         _currentState = _dottlerWanderState;
         _currentState.EnterState(this);
     }
@@ -33,6 +39,20 @@ public class DottlerStateManager : MonoBehaviour
     {
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         _currentState.UpdateState(this);
+        
+        if (!source.isPlaying)
+        {
+            if (waitTimer < 0f)
+            {
+                source.Play();
+                waitTimer = UnityEngine.Random.Range(minWait, maxWait);
+            }
+            else
+            {
+                waitTimer -= Time.deltaTime;
+            }
+        }
+
     }
     
     public void SwitchState(DottlerBaseState state)

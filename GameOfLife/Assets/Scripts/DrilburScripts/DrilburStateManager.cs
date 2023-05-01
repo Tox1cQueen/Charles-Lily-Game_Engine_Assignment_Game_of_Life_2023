@@ -12,6 +12,13 @@ public class DrilburStateManager : MonoBehaviour
     public bool isWandering;
     public bool isFleeing;
     public Rigidbody rb;
+    public Collider smallSphereTrigger;
+    public Collider largeSphereTrigger;
+    public AudioClip currentClip;
+    public AudioSource source;
+    public float minWait = 5f;
+    public float maxWait = 10f;
+    public float waitTimer = -2f;
     
     private DrilburBaseState _currentState;
     public DrilburFollowState _drilburFollowState = new DrilburFollowState();
@@ -22,6 +29,7 @@ public class DrilburStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         _currentState = _drilburWanderState;
         _currentState.EnterState(this);
     }
@@ -29,6 +37,18 @@ public class DrilburStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!source.isPlaying)
+        {
+            if (waitTimer < 0f)
+            {
+                source.Play();
+                waitTimer = UnityEngine.Random.Range(minWait, maxWait);
+            }
+            else
+            {
+                waitTimer -= Time.deltaTime;
+            }
+        }
         rb.velocity = new Vector3(0, rb.velocity.y, 0);
         _currentState.UpdateState(this);
     }

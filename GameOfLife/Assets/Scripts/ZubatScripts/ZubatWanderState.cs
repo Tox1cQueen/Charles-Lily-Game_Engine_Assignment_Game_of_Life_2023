@@ -18,7 +18,9 @@ public class ZubatWanderState : ZubatBaseState
     {
         zubat.rb.velocity = new Vector3(0, zubat.rb.velocity.y, 0);
         var step = zubat.speed * Time.deltaTime;
+        Vector3 targetDirection = zubat.wanderTarget - zubat.transform.position;
         zubat.transform.position = Vector3.MoveTowards(zubat.transform.position, zubat.wanderTarget, step);
+        zubat.transform.rotation = Quaternion.Slerp(zubat.transform.rotation,Quaternion.LookRotation(targetDirection), Time.deltaTime * 10f);
         Debug.Log("In wander state rn");
     }
 
@@ -50,9 +52,9 @@ public class ZubatWanderState : ZubatBaseState
     {
         while (zubat.isWandering = true)
         {
-            zubat.wanderTarget = new Vector3(Random.insideUnitSphere.x * 5, Mathf.Abs(Random.insideUnitSphere.y * 5) + 2, Random.insideUnitSphere.z * 5);
+            zubat.wanderTarget = new Vector3(Random.insideUnitSphere.x * 15, Mathf.Abs(Random.insideUnitSphere.y * 5) + 2, Random.insideUnitSphere.z * 15);
             Debug.Log("New target picked!");
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
