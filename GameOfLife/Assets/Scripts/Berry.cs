@@ -17,6 +17,6 @@ public class Berry : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-       // Destroy(self);
+       Destroy(self);
     }
 }
