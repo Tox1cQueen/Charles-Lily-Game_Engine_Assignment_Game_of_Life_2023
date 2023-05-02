@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Berry : MonoBehaviour
+public class Unberry : MonoBehaviour
 {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Berry")
         {
-            other.tag = "Berry";
+            other.tag = "Player";
         }
     }
 

@@ -8,7 +8,6 @@ public class DrilburRunState : DrilburBaseState
 
     public override void EnterState(DrilburStateManager drilbur)
     {
-        Debug.Log("Run state active");
         drilbur.isWandering = false;
         drilbur.isFleeing = true;
         drilbur.StopAllCoroutines();
@@ -45,7 +44,6 @@ public class DrilburRunState : DrilburBaseState
             Vector3 direction = drilbur.transform.position - drilbur.player.transform.position;
             direction.y = 0;
             drilbur.transform.Translate(direction.normalized * drilbur.speed * Time.deltaTime);
-            Debug.Log("Fleeing!");
             drilbur.speed = 4f;
             yield return null;
         }

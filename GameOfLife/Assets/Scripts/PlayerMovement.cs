@@ -97,13 +97,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         fallSpeed = velocity.y;
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            visualiser = GameObject.FindWithTag("Music");
-            Destroy(visualiser);
-            SceneManager.LoadScene("MainMenu");
-        }
+        
     }
 }
 

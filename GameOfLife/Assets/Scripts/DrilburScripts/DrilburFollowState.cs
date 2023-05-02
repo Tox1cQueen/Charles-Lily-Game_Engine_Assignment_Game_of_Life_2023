@@ -16,7 +16,6 @@ public class DrilburFollowState : DrilburBaseState
         drilbur.rb.velocity = new Vector3(0, drilbur.rb.velocity.y, 0);
         var step = drilbur.speed * Time.deltaTime;
         drilbur.transform.position = Vector3.MoveTowards(drilbur.transform.position, drilbur.player.position, step);
-        Debug.Log("In following state rn");
     }
 
     public override void OnTrig(DrilburStateManager drilbur, Collider other)

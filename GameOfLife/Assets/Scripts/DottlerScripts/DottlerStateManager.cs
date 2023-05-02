@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DottlerStateManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class DottlerStateManager : MonoBehaviour
     public Transform drilbur;
     public AudioSource source;
     public float minWait = 5f;
-    public float maxWait = 10f;
+    public float maxWait = 40f;
     public float waitTimer = -2f;
 
     
@@ -29,6 +30,8 @@ public class DottlerStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var randomScale = Random.Range(1f, 6f);
+        transform.localScale = new Vector3(randomScale, randomScale, randomScale);
         source = GetComponent<AudioSource>();
         _currentState = _dottlerWanderState;
         _currentState.EnterState(this);

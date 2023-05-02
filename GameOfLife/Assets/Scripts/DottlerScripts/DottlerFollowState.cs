@@ -18,7 +18,6 @@ public class DottlerFollowState : DottlerBaseState
         Vector3 followPoint = new Vector3(dottler.player.position.x, 0,
             dottler.player.position.z + 2); 
         dottler.transform.position = Vector3.MoveTowards(dottler.transform.position, followPoint, step);
-        Debug.Log("In following state rn");
     }
 
     public override void OnTrig(DottlerStateManager dottler, Collider other)

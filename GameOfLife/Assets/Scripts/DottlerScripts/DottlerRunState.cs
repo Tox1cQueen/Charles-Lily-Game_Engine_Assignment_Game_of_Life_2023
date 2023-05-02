@@ -8,7 +8,6 @@ public class DottlerRunState : DottlerBaseState
 
     public override void EnterState(DottlerStateManager dottler)
     {
-        Debug.Log("Run state active");
         dottler.isWandering = false;
         dottler.isFleeing = true;
         dottler.StopAllCoroutines();
@@ -43,7 +42,6 @@ public class DottlerRunState : DottlerBaseState
             Vector3 direction = dottler.transform.position - dottler.player.transform.position;
             direction.y = 0;
             dottler.transform.Translate(direction.normalized * dottler.speed * Time.deltaTime);
-            Debug.Log("Fleeing!");
             yield return null;
         }
     }

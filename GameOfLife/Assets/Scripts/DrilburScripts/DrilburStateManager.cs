@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DrilburStateManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class DrilburStateManager : MonoBehaviour
     public AudioClip currentClip;
     public AudioSource source;
     public float minWait = 5f;
-    public float maxWait = 10f;
+    public float maxWait = 40f;
     public float waitTimer = -2f;
     
     private DrilburBaseState _currentState;
@@ -29,11 +30,15 @@ public class DrilburStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var randomScale = Random.Range(1f, 15f);
+        transform.localScale = new Vector3(randomScale, randomScale, randomScale);
         source = GetComponent<AudioSource>();
         _currentState = _drilburWanderState;
         _currentState.EnterState(this);
     }
-
+    
+    
+    
     // Update is called once per frame
     void Update()
     {

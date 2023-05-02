@@ -14,12 +14,10 @@ public class ZubatStateManager : MonoBehaviour
     public Rigidbody rb;
     public AudioSource source;
     public float minWait = 5f;
-    public float maxWait = 10f;
+    public float maxWait = 40f;
     public float waitTimer = -2f;
     
     private ZubatBaseState _currentState;
-    public ZubatFollowState _zubatFollowState = new ZubatFollowState();
-    public ZubatRunState _zubatRunState = new ZubatRunState();
     public ZubatWanderState _zubatWanderState = new ZubatWanderState();
     
 

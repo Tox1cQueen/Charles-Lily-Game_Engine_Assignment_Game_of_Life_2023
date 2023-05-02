@@ -20,7 +20,6 @@ public class DottlerWanderState : DottlerBaseState
         dottler.rb.velocity = new Vector3(0, dottler.rb.velocity.y, 0);
         var step = dottler.speed * Time.deltaTime;
         dottler.transform.position = Vector3.MoveTowards(dottler.transform.position, dottler.wanderTarget, step);
-        Debug.Log("In wander state rn");
     }
 
     public override void OnTrig(DottlerStateManager dottler, Collider other)
@@ -35,14 +34,12 @@ public class DottlerWanderState : DottlerBaseState
         {
             dottler.StopCoroutine(PickNewTarget(dottler));
             dottler.SwitchState(dottler._dottlerFollowState);
-            Debug.Log("Switching to Follow state!");
         }
 
         if (other.tag == "Drilbur")
         {
             dottler.StopCoroutine(PickNewTarget(dottler));
             dottler.SwitchState(dottler._dottlerFollowDrilburState);
-            Debug.Log("Switching to Follow Drilbur state!");
             _drilburStateManager.speed = 0.5f;
         }
     }
@@ -52,8 +49,7 @@ public class DottlerWanderState : DottlerBaseState
     {
         while (dottler.isWandering = true)
         {
-            dottler.wanderTarget = new Vector3(Random.insideUnitSphere.x * 5, 0, Random.insideUnitSphere.z * 5);
-            Debug.Log("New target picked!");
+            dottler.wanderTarget = new Vector3(dottler.transform.position.x + Random.insideUnitSphere.x * 5, 0, dottler.transform.position.z + Random.insideUnitSphere.z * 5);
             yield return new WaitForSeconds(3f);
         }
     }

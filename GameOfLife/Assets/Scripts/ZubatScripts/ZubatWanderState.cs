@@ -21,7 +21,6 @@ public class ZubatWanderState : ZubatBaseState
         Vector3 targetDirection = zubat.wanderTarget - zubat.transform.position;
         zubat.transform.position = Vector3.MoveTowards(zubat.transform.position, zubat.wanderTarget, step);
         zubat.transform.rotation = Quaternion.Slerp(zubat.transform.rotation,Quaternion.LookRotation(targetDirection), Time.deltaTime * 10f);
-        Debug.Log("In wander state rn");
     }
 
     public override void OnTrig(ZubatStateManager zubat, Collider other)
@@ -32,19 +31,6 @@ public class ZubatWanderState : ZubatBaseState
 
     public override void OnTrigStay(ZubatStateManager zubat, Collider other)
     {
-        if (other.tag == "Player")
-        {
-            zubat.StopCoroutine(PickNewTarget(zubat));
-            zubat.SwitchState(zubat._zubatRunState);
-            Debug.Log("Switching to Run state!");
-        }
-
-        if (other.tag == "Berry")
-        {
-            zubat.StopCoroutine(PickNewTarget(zubat));
-            zubat.SwitchState(zubat._zubatFollowState);
-            Debug.Log("Switching to Follow state!");
-        }
     }
     
 
@@ -52,8 +38,7 @@ public class ZubatWanderState : ZubatBaseState
     {
         while (zubat.isWandering = true)
         {
-            zubat.wanderTarget = new Vector3(Random.insideUnitSphere.x * 15, Mathf.Abs(Random.insideUnitSphere.y * 5) + 2, Random.insideUnitSphere.z * 15);
-            Debug.Log("New target picked!");
+            zubat.wanderTarget = new Vector3(zubat.transform.position.x + Random.insideUnitSphere.x * 15, Mathf.Abs(Random.insideUnitSphere.y * 5) + 2,zubat.transform.position.z + Random.insideUnitSphere.z * 15);
             yield return new WaitForSeconds(0.5f);
         }
     }

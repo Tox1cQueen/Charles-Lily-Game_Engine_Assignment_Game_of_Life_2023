@@ -19,7 +19,6 @@ public class DottlerFollowDrilburState : DottlerBaseState
         Vector3 followPoint = new Vector3(dottler.drilbur.position.x - 2, dottler.drilbur.position.y,
             dottler.drilbur.position.z - 2); 
         dottler.transform.position = Vector3.MoveTowards(dottler.transform.position, followPoint, step);
-        Debug.Log("In following Drilbur state rn");
     }
 
     public override void OnTrig(DottlerStateManager dottler, Collider other)
