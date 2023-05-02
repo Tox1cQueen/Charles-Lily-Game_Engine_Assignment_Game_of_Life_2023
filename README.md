@@ -1,12 +1,14 @@
 # Charles-Lily-Game_Engine_Assignment_Game_of_Life_2023
 
-# Toaster of Wonders
+# Game of Life
 
 #### Names: Charles Kelly, Lily Hayes
 
 #### Student Numbers: C20487792, C20477084
 
-#### Video: [Click here!!]()
+#### Video: [Click here!!](https://youtu.be/R5wNIDlfDRY)
+
+**NOTE: For some reason a bug is happening where the tag "Berry" is not saved when pushed so you may need to manually  add this tag.**
 
 ## Description of the project
 You are a ranger that has travelled to a mysterious underground cave with these unique creatures, you are there  to observer how they interact with each other and how they interact with you. Each of the three AI have a way to wander around and some will run away from you if you get close while others will do the opposite and come towards you. And each ai does a unique interaction with either you or a different AI, so you must watch and find out what all they can do.
